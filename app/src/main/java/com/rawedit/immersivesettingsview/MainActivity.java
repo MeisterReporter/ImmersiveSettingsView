@@ -9,22 +9,10 @@ import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.slider.LabelFormatter;
 import com.google.android.material.slider.Slider;
-import com.rawedit.immersivesettingsview.R;
-import com.rawedit.immersivesettingsview.SettingsView;
-import com.rawedit.immersivesettingsview.items.CheckBoxSettingsItem;
-import com.rawedit.immersivesettingsview.items.CustomSettingsItem;
-import com.rawedit.immersivesettingsview.items.EditTextSettingsItem;
-import com.rawedit.immersivesettingsview.items.SettingsItem;
-import com.rawedit.immersivesettingsview.items.SliderSettingsItem;
-import com.rawedit.immersivesettingsview.items.SwitchSettingsItem;
-import com.rawedit.immersivesettingsview.items.TextSettingsItem;
-import com.rawedit.immersivesettingsview.pages.SettingsPage;
 
 public class MainActivity extends AppCompatActivity {
 
