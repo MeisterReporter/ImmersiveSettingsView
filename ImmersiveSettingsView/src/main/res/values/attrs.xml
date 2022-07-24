@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SettingsView">
+        <attr name="showItemDividers" format="boolean" >true</attr>
+        <attr name="openPageDelay" format="integer">250</attr>
+        <attr name="rippleColor" format="color" />
+    </declare-styleable>
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.Material3.Button.TextButton"
+        android:id="@+id/textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:text="This is an empty Setting"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        app:cornerRadius="0dp"
+        android:padding="16dp"
+        app:rippleColor="@color/defaultRipple"
+        android:textAppearance="@android:style/TextAppearance.Material"/>
+
+</LinearLayout>
