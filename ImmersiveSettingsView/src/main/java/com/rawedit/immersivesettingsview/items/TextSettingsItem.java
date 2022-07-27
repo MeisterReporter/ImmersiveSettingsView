@@ -153,16 +153,16 @@ public class TextSettingsItem extends SettingsItem {
         if(initialized) {
             switch(position) {
                 case LEFT:
-                    textView.setCompoundDrawables(d, null, null, null);
+                    textView.setCompoundDrawablesWithIntrinsicBounds(d, null, null, null);
                     break;
                 case RIGHT:
-                    textView.setCompoundDrawables(null, null, d, null);
+                    textView.setCompoundDrawablesWithIntrinsicBounds(null, null, d, null);
                     break;
                 case TOP:
-                    textView.setCompoundDrawables(null, d, null, null);
+                    textView.setCompoundDrawablesWithIntrinsicBounds(null, d, null, null);
                     break;
                 case BOTTOM:
-                    textView.setCompoundDrawables(null, null, null, d);
+                    textView.setCompoundDrawablesWithIntrinsicBounds(null, null, null, d);
                     break;
             }
         }else {
@@ -171,16 +171,16 @@ public class TextSettingsItem extends SettingsItem {
                 public void run() {
                     switch(position) {
                         case LEFT:
-                            textView.setCompoundDrawables(d, null, null, null);
+                            textView.setCompoundDrawablesWithIntrinsicBounds(d, null, null, null);
                             break;
                         case RIGHT:
-                            textView.setCompoundDrawables(null, null, d, null);
+                            textView.setCompoundDrawablesWithIntrinsicBounds(null, null, d, null);
                             break;
                         case TOP:
-                            textView.setCompoundDrawables(null, d, null, null);
+                            textView.setCompoundDrawablesWithIntrinsicBounds(null, d, null, null);
                             break;
                         case BOTTOM:
-                            textView.setCompoundDrawables(null, null, null, d);
+                            textView.setCompoundDrawablesWithIntrinsicBounds(null, null, null, d);
                             break;
                     }
                 }
