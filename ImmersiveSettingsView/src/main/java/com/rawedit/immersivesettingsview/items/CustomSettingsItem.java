@@ -1,4 +1,4 @@
-package com.rawedit.immersivesettingsview;
+package com.rawedit.immersivesettingsview.items;
 
 import android.content.Context;
 import android.util.AttributeSet;

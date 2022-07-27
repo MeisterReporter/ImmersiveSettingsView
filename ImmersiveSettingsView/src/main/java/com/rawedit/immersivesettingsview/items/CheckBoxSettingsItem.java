@@ -1,4 +1,4 @@
-package com.rawedit.immersivesettingsview;
+package com.rawedit.immersivesettingsview.items;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -10,6 +10,8 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.Nullable;
 
 import com.google.android.material.checkbox.MaterialCheckBox;
+import com.rawedit.immersivesettingsview.R;
+import com.rawedit.immersivesettingsview.SettingsView;
 
 public class CheckBoxSettingsItem extends SettingsItem {
 

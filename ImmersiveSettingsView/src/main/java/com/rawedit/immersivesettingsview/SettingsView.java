@@ -29,8 +29,18 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.ColorInt;
+import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.rawedit.immersivesettingsview.items.CheckBoxSettingsItem;
+import com.rawedit.immersivesettingsview.items.CustomSettingsItem;
+import com.rawedit.immersivesettingsview.items.EditTextSettingsItem;
+import com.rawedit.immersivesettingsview.items.SettingsItem;
+import com.rawedit.immersivesettingsview.items.SliderSettingsItem;
+import com.rawedit.immersivesettingsview.items.SwitchSettingsItem;
+import com.rawedit.immersivesettingsview.items.TextSettingsItem;
+import com.rawedit.immersivesettingsview.pages.SettingsPage;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -42,6 +52,8 @@ public class SettingsView extends LinearLayout {
     private boolean initialized = false;
     private boolean animateLayoutChanges = true;
     private boolean showDividers = true;
+
+    private int drawablePosition = TextSettingsItem.LEFT;
 
     @ColorInt
     private int rippleColor = 0;
@@ -135,20 +147,29 @@ public class SettingsView extends LinearLayout {
                 SettingsPage page = (SettingsPage) value;
                 TextSettingsItem item = (TextSettingsItem) SettingsItem.createSettingsItem(SettingsItem.Type.TEXT, getContext());
                 main.add(item, page.getTitle());
-                item.setText(page.getItemName());
-                item.setOnClickListener(new OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                Log.d(TAG, "Opening Page " + page.getTitle());
-                                setPage(page, true);
-                            }
-                        }, openPageDelay);
+                if(item != null) {
+                    if(page.getItemDrawable() != null) {
+                        item.setDrawable(page.getItemDrawable(), drawablePosition);
+                    }else if(page.getItemDrawableResource() > 0) {
+                        item.setDrawable(page.getItemDrawableResource(), drawablePosition);
                     }
-                });
-                Log.d(TAG, "Inflated item " + page.getItemName());
+                    item.setText(page.getItemName());
+                    item.setOnClickListener(new OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Log.d(TAG, "Opening Page " + page.getTitle());
+                                    setPage(page, true);
+                                }
+                            }, openPageDelay);
+                        }
+                    });
+                    Log.d(TAG, "Inflated item " + page.getItemName());
+                }else {
+                    Log.d(TAG, "Item could not be inflated because its null: Unknown Item Type");
+                }
             }else if(value instanceof SettingsItem) {
                 SettingsItem item = (SettingsItem) value;
                 if(item.getParent() != null) {
@@ -296,6 +317,17 @@ public class SettingsView extends LinearLayout {
 
     public void setOpenPageDelay(long openPageDelay) {
         this.openPageDelay = openPageDelay;
+    }
+
+    public int getDrawablePosition() {
+        return drawablePosition;
+    }
+
+    public void setDrawablePosition(int drawablePosition) {
+        if(initialized) {
+            this.drawablePosition = drawablePosition;
+            initMainPage();
+        }
     }
 
     // Static Helper Methods

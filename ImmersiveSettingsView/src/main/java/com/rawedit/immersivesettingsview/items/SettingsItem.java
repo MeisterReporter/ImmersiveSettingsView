@@ -1,4 +1,4 @@
-package com.rawedit.immersivesettingsview;
+package com.rawedit.immersivesettingsview.items;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -11,6 +11,8 @@ import android.widget.FrameLayout;
 
 import androidx.annotation.ColorInt;
 import androidx.annotation.Nullable;
+
+import com.rawedit.immersivesettingsview.SettingsView;
 
 import java.util.ArrayList;
 

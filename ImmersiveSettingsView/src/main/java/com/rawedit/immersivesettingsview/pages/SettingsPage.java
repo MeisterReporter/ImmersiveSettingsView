@@ -1,6 +1,7 @@
-package com.rawedit.immersivesettingsview;
+package com.rawedit.immersivesettingsview.pages;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.ViewGroup;
@@ -8,8 +9,15 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
 import androidx.annotation.ColorInt;
+import androidx.annotation.DrawableRes;
 import androidx.annotation.Nullable;
 import androidx.appcompat.content.res.AppCompatResources;
+
+import com.rawedit.immersivesettingsview.items.CheckBoxSettingsItem;
+import com.rawedit.immersivesettingsview.items.EditTextSettingsItem;
+import com.rawedit.immersivesettingsview.items.SettingsItem;
+import com.rawedit.immersivesettingsview.items.SliderSettingsItem;
+import com.rawedit.immersivesettingsview.items.SwitchSettingsItem;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,8 +32,13 @@ public class SettingsPage extends ScrollView {
     @ColorInt
     private int rippleColor = 0;
 
+    // The title represents a short name for the page
     private String title = "";
+    // The item name is a longer name used for displaying text on the main page
     private String itemName = "";
+    private Drawable itemDrawable = null;
+    @DrawableRes
+    private int itemDrawableResource = 0;
 
     private HashMap<String, SettingsItem> items = new HashMap<>();
 
@@ -187,4 +200,34 @@ public class SettingsPage extends ScrollView {
     public void setShowDividers(boolean showDividers) {
         this.showDividers = showDividers;
     }
+
+    public Drawable getItemDrawable() {
+        return itemDrawable;
+    }
+
+    public void setItemDrawableResource(@DrawableRes int res) {
+        this.itemDrawableResource = res;
+    }
+
+    public int getItemDrawableResource() {
+        return itemDrawableResource;
+    }
+
+    public void setItemDrawable(Drawable d) {
+        this.itemDrawable = d;
+    }
+
+    public void setDrawable(@DrawableRes int res) {
+        if(initialized) {
+            this.itemDrawable = AppCompatResources.getDrawable(getContext(), res);
+        }else {
+            queue.add(new Runnable() {
+                @Override
+                public void run() {
+                    itemDrawable = AppCompatResources.getDrawable(getContext(), res);
+                }
+            });
+        }
+    }
+
 }

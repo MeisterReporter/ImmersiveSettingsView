@@ -1,4 +1,4 @@
-package com.rawedit.immersivesettingsview;
+package com.rawedit.immersivesettingsview.items;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -15,6 +15,8 @@ import com.airbnb.paris.Paris;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.rawedit.immersivesettingsview.R;
+import com.rawedit.immersivesettingsview.SettingsView;
 
 public class EditTextSettingsItem extends SettingsItem {
 
