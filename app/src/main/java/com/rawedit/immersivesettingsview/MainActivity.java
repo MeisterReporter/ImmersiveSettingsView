@@ -13,6 +13,14 @@ import android.view.View;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.slider.LabelFormatter;
 import com.google.android.material.slider.Slider;
+import com.rawedit.immersivesettingsview.items.CheckBoxSettingsItem;
+import com.rawedit.immersivesettingsview.items.CustomSettingsItem;
+import com.rawedit.immersivesettingsview.items.EditTextSettingsItem;
+import com.rawedit.immersivesettingsview.items.SettingsItem;
+import com.rawedit.immersivesettingsview.items.SliderSettingsItem;
+import com.rawedit.immersivesettingsview.items.SwitchSettingsItem;
+import com.rawedit.immersivesettingsview.items.TextSettingsItem;
+import com.rawedit.immersivesettingsview.pages.SettingsPage;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         SettingsPage importantSettings = settingsView.createSettingsPage();
         importantSettings.setItemName("Very Important Settings");
         importantSettings.setTitle("Very Important Settings");
+        importantSettings.setItemDrawableResource(R.drawable.ic_android_black);
         settingsView.add(importantSettings);
         // Creating Example Items
         // Text
